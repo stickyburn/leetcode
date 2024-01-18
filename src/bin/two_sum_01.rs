@@ -3,18 +3,27 @@ use std::collections::HashMap;
 pub struct SumOfTwo;
 
 impl SumOfTwo {
-    pub fn sum(nums: Vec<u32>, target: u32) -> Vec<u32> {
+    fn sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
         let mut map = HashMap::new();
 
         for (i, &num) in nums.iter().enumerate() {
             if let Some(&j) = map.get(&(target - num)) {
-                return vec![j, i as u32];
+                return vec![j, i as i32];
             } else {
-                map.insert(num, i as u32);
+                map.insert(num, i as i32);
             }
         }
         vec![]
     }
+}
+
+fn main() {
+    let nums = vec![2, 7, 11, 3];
+    let target = 10;
+    println!(
+        "Index of two numbers that add to 9: {:?}",
+        SumOfTwo::sum(nums, target)
+    );
 }
 
 #[test]
