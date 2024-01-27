@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-pub struct SumOfTwo;
+struct SumOfTwo;
 
 impl SumOfTwo {
     fn sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
